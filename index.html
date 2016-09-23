@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Caça Palavras</title>	
+</head>
+<body>
+	<h1>Caça Palavras</h1><br/>
+	<label>
+		Palavras: <br />
+		<small style="font-size:x-small; font-family:'tahoma'">Coloque as palavras separadas por virgula.</small><br />
+		<input type="text" id="palavras" style="width:600px; margin-top:10px;"></input>		
+	</label><br />
+	<label>
+		Linhas: 	
+		<input type="text" id="linhas" style="width:100px; margin-top:10px;" value="8"></input>
+	</label> 
+	<label>
+		Colunas: 		
+		<input type="text" id="colunas" style="width:100px; margin-top:10px;" value="26"></input>
+	</label><br />
+	<small style="font-size:x-small; font-family:'tahoma'">MV-B = 17 Linhas e 17 Colunas, MH-B = 8Linhas e 26 Colunas</small>
+	<br/><br/>
+	<button id="gerar">Gerar</button>
+	<br/><br/>
+	<div>
+		<h3>Caça Palavras</h3>
+		<pre id="cPalavras">
+		</pre><br />
+		<h3>Respostas</h3>
+		<pre id="res">
+		</pre>
+	</div>
+	
+	<script src="js/cp.js"></script>
+	<script>		
+		document.getElementById("gerar").addEventListener("click", function(){				
+			var 
+			 p = document.getElementById("palavras").value
+			,col = document.getElementById("colunas").value
+			,lin = document.getElementById("linhas").value
+			,PALAVRAS = cp.cacapalavras(p,lin,col);
+			document.getElementById("cPalavras").innerHTML = PALAVRAS['cacapalavra'];
+			document.getElementById("res").innerHTML = PALAVRAS['resposta'];
+		});
+	</script>
+</body>
+</html>
